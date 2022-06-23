@@ -1,0 +1,21 @@
+.container-empty {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout {
+    width: 200px;
+    font-size: large;
+    font-weight: 500;
+    position: fixed;
+    right: 30px;
+    bottom: 40px;
+}
+
+i {
+    cursor: pointer;
+    color: red;
+}

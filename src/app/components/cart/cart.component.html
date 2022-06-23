@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div *ngIf="carts.length !== 0; else shopNow">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Product</th>
+          <th></th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cart of carts">
+          <th scope="row">{{ cart.productName }}</th>
+          <td (click)="deleteProduct(cart.productName)">
+            <i class="fa-solid fa-trash"></i>
+          </td>
+          <td>Rs. {{ cart.price }}</td>
+          <td>
+            <select
+              name="quantity"
+              [(ngModel)]="cart.quantity"
+              (ngModelChange)="onChange($event, cart.productName)"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+          </td>
+          <td>Rs. {{ cart.price * cart.quantity }}</td>
+        </tr>
+        <tr>
+          <th scope="col" colspan="4">Total:</th>
+          <th>Rs. {{ total }}</th>
+        </tr>
+      </tbody>
+    </table>
+    <button class="checkout btn btn-primary" (click)="createOrder()">Checkout</button>
+  </div>
+  <ng-template #shopNow>
+    <div class="container-empty">
+      <img
+        src="https://mamaearthp.imgix.net/wysiwyg/bags2x.png?auto=format"
+        alt=""
+        width="200"
+        height="200"
+      />
+      <button class="btn btn-primary" (click)="noItemsInCart()">
+        SHOP NOW
+      </button>
+    </div>
+  </ng-template>
+</div>

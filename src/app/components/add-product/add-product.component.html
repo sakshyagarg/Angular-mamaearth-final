@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+<div class="container my-4">
+  <form (ngSubmit)="!productForm.invalid && addProduct()" #productForm="ngForm">
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="!image.valid"
+    >
+      Image URL is required.
+    </div>
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="!name.valid"
+    >
+      Name is required.
+    </div>
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="!price.valid"
+    >
+      Price is required.
+    </div>
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="!description.valid"
+    >
+      Description is required.
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Image URL</label>
+      <input
+        type="text"
+        class="form-control"
+        name="imageurl"
+        #image="ngModel"
+        [(ngModel)]="product.img"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Product Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        #name="ngModel"
+        [(ngModel)]="product.name"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        #description="ngModel"
+        [(ngModel)]="product.description"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        name="price"
+        #price="ngModel"
+        [(ngModel)]="product.price"
+        required min="99" max="9999"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <select
+        name="category"
+        class="form-control"
+        [(ngModel)]="product.category"
+      >
+        <option value="face">Face</option>
+        <option value="hair">Hair</option>
+        <option value="body">Body</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">
+      Add Product
+    </button>
+  </form>
+</div>

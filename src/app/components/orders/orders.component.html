@@ -1,0 +1,25 @@
+<div class="container" *ngFor="let orderedItems of arr, let i = index">
+    <div class="order">
+     <h2>Order No. #{{orderedItems[0].orderId}}</h2>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orderedItems">
+              <th scope="row">{{ order.productName }}</th>
+              <td>{{ order.quantity }}</td>
+              <td>Rs. {{ order.price }}</td>
+            </tr>
+            <tr>
+              <th scope="col" colspan="2">Total:</th>
+              <th>Rs. {{ arr2[i] }}</th>
+            </tr>
+          </tbody>
+          </table>
+</div>

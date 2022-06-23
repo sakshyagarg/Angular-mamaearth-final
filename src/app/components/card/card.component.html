@@ -1,0 +1,19 @@
+<div class="card h-100">
+    <img
+      class="card-img-top"
+      src="{{product.img}}"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">
+        {{product.name}}
+      </h5>
+      <p class="card-text">
+        {{product.description}}
+      </p>
+      <p class="price my-2">Rs. {{product.price}}</p>
+      <a class="btn btn-primary" (click)="addToCart()" *ngIf="!isAdmin">Add to Cart</a>
+      <a class="btn btn-success mx-2" (click)="edit(product)" *ngIf="isAdmin">Edit</a>
+      <a class="btn btn-danger" (click)="delete(product.id)" *ngIf="isAdmin">Delete</a>
+    </div>
+  </div>
