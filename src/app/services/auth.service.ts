@@ -25,10 +25,10 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('username');
-    localStorage.removeItem('isAdmin');
+    // localStorage.removeItem('username');
+    // localStorage.removeItem('isAdmin');
     // this.setLogin(false);
-    this.router.navigate(['']);
+    this.router.navigate(['/logout']);
   }
 
   register(userForm: any) {
